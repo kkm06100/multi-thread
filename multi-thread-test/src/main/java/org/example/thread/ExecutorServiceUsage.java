@@ -13,11 +13,7 @@ public class ExecutorServiceUsage {
         threadPoolExecutor();
         // threadCacheExecutor();
     }
-
-    /**
-     * <h2>Create Singleton Thead Executor</h2>
-     * All task run in singleton thread
-     */
+    
     private static void singletonThreadExecutor(){
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
@@ -27,23 +23,15 @@ public class ExecutorServiceUsage {
         executor.shutdown();
     }
 
-    /**
-     * <h2>Create Thread Pool Executor</h2>
-     * Task gets thread
-     */
     private static void threadPoolExecutor() {
         // todo : What is threadFactory? -> go study
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 15; i++){
             TimeChecker.start(i + 1);
         }
         executor.shutdown();
     }
 
-    /**
-     * <h2>Create Cached Executor</h2>
-     * Task gets <b>unique</b> thread
-     */
     private static void threadCacheExecutor(){
         ExecutorService executor = Executors.newCachedThreadPool();
         for (int i = 0; i < 50; i++){
