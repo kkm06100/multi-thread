@@ -9,11 +9,11 @@ public class ExecutorServiceUsage {
     private static final int THREAD_POOL_SIZE = 7;
 
     public static void main(String[] args) {
-        singletonThreadExecutor();
+//        singletonThreadExecutor();
         threadPoolExecutor();
-        // threadCacheExecutor();
+//         threadCacheExecutor();
     }
-    
+
     private static void singletonThreadExecutor(){
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
@@ -34,7 +34,7 @@ public class ExecutorServiceUsage {
 
     private static void threadCacheExecutor(){
         ExecutorService executor = Executors.newCachedThreadPool();
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 15; i++){
             TimeChecker.start(i + 1);
         }
         executor.shutdown();
